@@ -1,0 +1,49 @@
+# Terraform AWS VPC Module Customised
+
+This module is going to create the following resources for HA we are going to get 
+first 2 AZ.
+
+* VPC
+* Internet Gateway associated with VPC
+* 2 Public Subnets
+* 2 Private Subnets
+* 2 Database Subnets
+* Database subnet group
+* EIP
+* NAT Gateway
+* Public Route table
+* Private Route table
+* Database Route table
+* Routes
+* Route table associations with subnets
+* Peering with default VPC (if required)
+* Peering routes in acceptor and requestor route table
+
+# Inputs
+* project_name (Mandatory): User must supply their project name.
+* environment (Mandatory): User must supply their environment name.
+* vpc_cidr (Mandatory): User must supply their VPC cidr
+* enable_dns_hostnames (optinoal): default to true
+* common_tags (optional): Default is empty. User can supply tags in list (string) format.
+* vpc_tags (optional): Default is empty. User can supply tags in list (string) format.
+* public_subnet_cidrs (Mandatory): User must supply only 2 valid public subnet CIDR
+* public_subnet_tags (optional): Default is empty. User can supply tags in list (string) format.
+* private_subnet_cidrs (Mandatory): User must supply only 2 valid public subnet CIDR
+* private_subnet_tags (optional): Default is empty. User can supply tags in list (string) format.
+* database_subnet_cidrs (Mandatory): User must supply only 2 valid public subnet CIDR
+* database_subnet_tags (optional): Default is empty. User can supply tags in list (string) format.
+* db_subnet_group_tags (optional): Default is emplty. User can supply tags in list (string) format.
+* nat_gateway_tags (optional): Default is emplty. User can supply tags in list (string) format.
+* public_route_table_tags (optional): Default is emplty. User can supply tags in list (string) format.
+* private_route_table_tags (optional): Default is emplty. User can supply tags in list (string) format.
+* database_route_table_tags (optional): Default is emplty. User can supply tags in list (string) format.
+* is_peering_required (optional): default false
+* vpc_peering_tags (optional): Default is emplty. User can supply tags in list (string) format.
+
+
+# outputs
+* vpc_id: VPC ID created
+* public_subnet_ids: list of 2 public subnet ids created
+* private_subnet_ids: list of 2 public subnet ids created
+* database_subnet_ids: list of 2 public subnet ids created
+
